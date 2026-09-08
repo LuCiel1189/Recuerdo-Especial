@@ -25,25 +25,24 @@
     <button onclick="playMusicAndNext(3)">Reproducir y Continuar</button>
 </section>
 
-    <!-- Paso 3: Fotos (Aparecen 1 a 1 al tocar) -->
-    <section id="step-3" class="step">
-        <h2>Algunos recuerdos de amixes felices 📸</h2>
-        <p class="click-hint" id="photo-hint">Toca la pantalla para revelar una foto (1/9)</p>
-        
-        <div class="gallery" onclick="revealNextPhoto()">
-            <img src="foto1.JPG" alt="Foto 1" class="gallery-item">
-            <img src="foto2.JPG" alt="Foto 2" class="gallery-item">
-            <img src="foto3.JPG" alt="Foto 3" class="gallery-item">
-            <img src="foto4.JPG" alt="Foto 4" class="gallery-item">
-            <img src="foto5.JPG" alt="Foto 5" class="gallery-item">
-            <img src="foto6.JPG" alt="Foto 6" class="gallery-item">
-            <img src="foto7.JPG" alt="Foto 7" class="gallery-item">
-            <img src="foto8.JPG" alt="Foto 8" class="gallery-item">
-            <img src="foto9.JPG" alt="Foto 9" class="gallery-item">
-        </div>
+    <!-- Paso 3: Fotos a Pantalla Completa -->
+<section id="step-3" class="step step-fullscreen-photos">
+    <p class="click-hint" id="photo-hint">Toca la pantalla para ver la primera foto ✨</p>
+    
+    <div class="photo-viewer" onclick="revealNextPhoto()">
+        <img src="foto1.JPG" alt="Foto 1" class="fullscreen-photo">
+        <img src="foto2.JPG" alt="Foto 2" class="fullscreen-photo">
+        <img src="foto3.JPG" alt="Foto 3" class="fullscreen-photo">
+        <img src="foto4.JPG" alt="Foto 4" class="fullscreen-photo">
+        <img src="foto5.JPG" alt="Foto 5" class="fullscreen-photo">
+        <img src="foto6.JPG" alt="Foto 6" class="fullscreen-photo">
+        <img src="foto7.JPG" alt="Foto 7" class="fullscreen-photo">
+        <img src="foto8.JPG" alt="Foto 8" class="fullscreen-photo">
+        <img src="foto9.JPG" alt="Foto 9" class="fullscreen-photo">
+    </div>
 
-        <button id="next-to-letter-btn" onclick="nextStep(4)" style="display: none;">Leer la carta</button>
-    </section>
+    <button id="next-to-letter-btn" onclick="nextStep(4)" style="display: none;">Leer la carta 💌</button>
+</section>
 
     <!-- Paso 4: Carta -->
     <section id="step-4" class="step">
@@ -74,17 +73,13 @@ Feliz cumpleaños, mi cochina. ❤️
         <button onclick="nextStep(5)">Final</button>
     </section>
 
-    <!-- Paso 5: Final con imagen y texto encimado -->
-    <section id="step-5" class="step step-final">
-        <div class="final-container">
-            <img src="fotofinal.JPG" alt="Foto final" class="final-img">
-            <div class="final-overlay">
-                <h2>¡Te amo mi niña preciosa..! ❤️</h2>
-                <p>Se que no siempre soy un buen amix, pero es porque mi corazon quiere casarse con el tuyo, y aun si no puede ser, Gracias por darle tanta luz a mi vida.</p>
-            </div>
+   <!-- Paso 5: Final con foto final en mayúsculas -->
+<section id="step-5" class="step step-final">
+    <div class="final-container">
+        <img src="fotofinal.JPG" alt="Foto final" class="final-img">
+        <div class="final-overlay">
+            <h2>¡Te amo mi niña preciosa! ❤️</h2>
+            <p>Se que aveces soy un dolor de cabeza, pero es solo porque mi corazon quiere casarse con el tuyo, y a pesar de no poder ser, Gracias por venir a darle luz a mi vida.</p>
         </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    </div>
+</section>
