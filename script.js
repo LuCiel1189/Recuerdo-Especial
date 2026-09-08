@@ -1,24 +1,24 @@
-let currentPhotoIndex = 0;
+let currentPhotoIndex = -1;
 
 // Crear partículas de luz flotantes
 function createLightParticles() {
     const container = document.getElementById('particles');
-    const particleCount = 25; // Cantidad de luces
+    if (!container) return;
+    
+    container.innerHTML = '';
+    const particleCount = 30;
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('light-particle');
 
-        // Tamaños variados para las luces
-        const size = Math.random() * 12 + 6; 
+        const size = Math.random() * 10 + 5; 
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
 
-        // Posición horizontal aleatoria
         particle.style.left = `${Math.random() * 100}vw`;
 
-        // Tiempos de animación aleatorios para que no suban juntas
-        const duration = Math.random() * 8 + 6; // Entre 6 y 14 segundos
+        const duration = Math.random() * 8 + 6;
         const delay = Math.random() * 8;
         
         particle.style.animationDuration = `${duration}s`;
@@ -28,7 +28,7 @@ function createLightParticles() {
     }
 }
 
-// Iniciar luces al cargar la página
+// Genera los destellos apenas carga la ventana
 window.onload = createLightParticles;
 
 function nextStep(stepNumber) {
@@ -40,8 +40,7 @@ function nextStep(stepNumber) {
         currentStep.classList.add('active');
     }
 
-    // Si entramos al paso 3 (fotos), revelamos la primera foto automáticamente
-    if (stepNumber === 3 && currentPhotoIndex === 0) {
+    if (stepNumber === 3 && currentPhotoIndex === -1) {
         revealNextPhoto();
     }
 }
@@ -49,25 +48,30 @@ function nextStep(stepNumber) {
 function playMusicAndNext(nextStepNumber) {
     const music = document.getElementById('bg-music');
     if (music) {
-        music.play().catch(error => console.log("Auto-play prevenido:", error));
+        music.muted = false;
+        const playPromise = music.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => console.log("Error de audio:", error));
+        }
     }
     nextStep(nextStepNumber);
 }
 
 function revealNextPhoto() {
-    const photos = document.querySelectorAll('.gallery-item');
+    const photos = document.querySelectorAll('.fullscreen-photo');
     const hint = document.getElementById('photo-hint');
     const nextBtn = document.getElementById('next-to-letter-btn');
 
-    if (currentPhotoIndex < photos.length) {
-        photos[currentPhotoIndex].classList.add('show');
-        currentPhotoIndex++;
+    currentPhotoIndex++;
 
-        if (currentPhotoIndex < photos.length) {
-            hint.textContent = `Toca la pantalla para revelar una foto (${currentPhotoIndex + 1}/${photos.length})`;
-        } else {
-            hint.textContent = "¡Aquí están todos nuestros momentos!";
-            nextBtn.style.display = "inline-block";
-        }
+    if (currentPhotoIndex < photos.length) {
+        photos.forEach(photo => photo.classList.remove('show'));
+        photos[currentPhotoIndex].classList.add('show');
+        hint.textContent = `Toca la foto para ver la siguiente (${currentPhotoIndex + 1}/${photos.length})`;
+    } 
+    
+    if (currentPhotoIndex >= photos.length - 1) {
+        hint.textContent = "✨ ¡Nuestros momentos especiales! ✨";
+        nextBtn.style.display = "inline-block";
     }
 }
