@@ -48,10 +48,16 @@ function nextStep(stepNumber) {
 function playMusicAndNext(nextStepNumber) {
     const music = document.getElementById('bg-music');
     if (music) {
-        music.muted = false;
+        music.muted = false; // Desactiva el silencio
+        music.currentTime = 0; // Inicia desde el segundo 0
+        
         const playPromise = music.play();
         if (playPromise !== undefined) {
-            playPromise.catch(error => console.log("Error de audio:", error));
+            playPromise.then(() => {
+                console.log("Música sonando perfectamente");
+            }).catch(error => {
+                console.log("Error al reproducir audio:", error);
+            });
         }
     }
     nextStep(nextStepNumber);
