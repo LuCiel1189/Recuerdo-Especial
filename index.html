@@ -8,23 +8,26 @@
 </head>
 <body>
 
+    <!-- Contenedor para las luces flotantes -->
+    <div id="particles"></div>
+
     <!-- Paso 1: Portada -->
     <section id="step-1" class="step active">
-        <h1>Tengo algo especial para vos tesoro ✨</h1>
+        <h1>Este es el secreto detras de mi regalo ✨</h1>
         <p>Haz clic para comenzar</p>
         <button onclick="nextStep(2)">Empezar</button>
     </section>
 
     <!-- Paso 2: Música -->
     <section id="step-2" class="step">
-        <h2>Primero, pongamos un poco de música... 🎵</h2>
+        <h2>Pero Primero, pongamos un poco de música... Una que seguramente recordaras 🎵</h2>
         <audio id="bg-music" src="musica.mp3" loop></audio>
         <button onclick="playMusicAndNext(3)">Reproducir y Continuar</button>
     </section>
 
     <!-- Paso 3: Fotos (Aparecen 1 a 1 al tocar) -->
     <section id="step-3" class="step">
-        <h2>Algunos recuerdos de amixes 📸</h2>
+        <h2>Algunos recuerdos de amixes felices 📸</h2>
         <p class="click-hint" id="photo-hint">Toca la pantalla para revelar una foto (1/9)</p>
         
         <div class="gallery" onclick="revealNextPhoto()">
@@ -44,7 +47,7 @@
 
     <!-- Paso 4: Carta -->
     <section id="step-4" class="step">
-        <h2>Una carta para ti 💌</h2>
+        <h2>Y Una pequeña carta para ti 💌</h2>
         <div class="letter">
             <p>Hoy es un día que, aunque quizás vos no lo veas de esa manera, es muy especial. Es el día en que nació mi niña preciosa, esa personita que vino a llenar el mundo de brillitos, amor y un poquito de caos también. Y, por supuesto, espero que hoy puedas verlo así y disfrutarlo como realmente merecés.
 
@@ -76,8 +79,8 @@ Feliz cumpleaños, mi cochina. ❤️
         <div class="final-container">
             <img src="fotofinal.jpg" alt="Foto final" class="final-img">
             <div class="final-overlay">
-                <h2>¡Te amo mi bebita linda! ❤️</h2>
-                <p>Gracias por ser parte de mi vida.</p>
+                <h2>¡Te amo mi niña preciosa..! ❤️</h2>
+                <p>Se que no siempre soy un buen amix, pero es porque mi corazon quiere casarse con el tuyo, y aun si no puede ser, Gracias por darle tanta luz a mi vida.</p>
             </div>
         </div>
     </section>
