@@ -125,3 +125,45 @@ button:hover {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* --- Estilos para Luces Flotantes --- */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.light-particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,223,186,0.8) 50%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 200, 220, 0.6);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(105vh) scale(0.3);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.9;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Asegurar que las secciones queden por encima de las luces */
+.step {
+    position: relative;
+    z-index: 1;
+}
