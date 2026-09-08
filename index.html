@@ -10,7 +10,7 @@
 
     <!-- Paso 1: Portada -->
     <section id="step-1" class="step active">
-        <h1>Tengo algo especial para vos tesoro de mi corazon ✨</h1>
+        <h1>Tengo algo especial para vos tesoro ✨</h1>
         <p>Haz clic para comenzar</p>
         <button onclick="nextStep(2)">Empezar</button>
     </section>
@@ -22,21 +22,24 @@
         <button onclick="playMusicAndNext(3)">Reproducir y Continuar</button>
     </section>
 
-    <!-- Paso 3: Fotos (9 fotos) -->
+    <!-- Paso 3: Fotos (Aparecen 1 a 1 al tocar) -->
     <section id="step-3" class="step">
-        <h2>Algunos Lindos recuerdos de Amixes Felices 📸</h2>
-        <div class="gallery">
-            <img src="foto1.jpg" alt="Foto 1">
-            <img src="foto2.jpg" alt="Foto 2">
-            <img src="foto3.jpg" alt="Foto 3">
-            <img src="foto4.jpg" alt="Foto 4">
-            <img src="foto5.jpg" alt="Foto 5">
-            <img src="foto6.jpg" alt="Foto 6">
-            <img src="foto7.jpg" alt="Foto 7">
-            <img src="foto8.jpg" alt="Foto 8">
-            <img src="foto9.jpg" alt="Foto 9">
+        <h2>Algunos recuerdos de amixes 📸</h2>
+        <p class="click-hint" id="photo-hint">Toca la pantalla para revelar una foto (1/9)</p>
+        
+        <div class="gallery" onclick="revealNextPhoto()">
+            <img src="foto1.jpg" alt="Foto 1" class="gallery-item">
+            <img src="foto2.jpg" alt="Foto 2" class="gallery-item">
+            <img src="foto3.jpg" alt="Foto 3" class="gallery-item">
+            <img src="foto4.jpg" alt="Foto 4" class="gallery-item">
+            <img src="foto5.jpg" alt="Foto 5" class="gallery-item">
+            <img src="foto6.jpg" alt="Foto 6" class="gallery-item">
+            <img src="foto7.jpg" alt="Foto 7" class="gallery-item">
+            <img src="foto8.jpg" alt="Foto 8" class="gallery-item">
+            <img src="foto9.jpg" alt="Foto 9" class="gallery-item">
         </div>
-        <button onclick="nextStep(4)">Leer la carta</button>
+
+        <button id="next-to-letter-btn" onclick="nextStep(4)" style="display: none;">Leer la carta</button>
     </section>
 
     <!-- Paso 4: Carta -->
@@ -68,12 +71,12 @@ Feliz cumpleaños, mi cochina. ❤️
         <button onclick="nextStep(5)">Final</button>
     </section>
 
-    <!-- Paso 5: Final con imagen de fondo y texto encima -->
+    <!-- Paso 5: Final con imagen y texto encimado -->
     <section id="step-5" class="step step-final">
         <div class="final-container">
             <img src="fotofinal.jpg" alt="Foto final" class="final-img">
             <div class="final-overlay">
-                <h2>¡Te amo mi niña preciosa! ❤️</h2>
+                <h2>¡Te amo mi bebita linda! ❤️</h2>
                 <p>Gracias por ser parte de mi vida.</p>
             </div>
         </div>
